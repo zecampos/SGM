@@ -1,0 +1,35 @@
+<div class="jumbotron">
+  <div class="row align-items-end">
+    <div class="col-11 col-md-11">
+      <h3 class="display-3">Hall de Membros</h3>
+    </div>
+    <div class="col-1 col-md-1 ">
+      <a routerLink="novo"><i class=" fa fa-plus-circle fa-3x " aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+  <table  class="table table-striped table-hover table-bordered">
+    <thead class="thead-inverse">
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Discipulador</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let membro of membrosref$ | async">
+        <td>{{membro.$key}}</td>
+        <td>{{membro.nome}}</td>
+        <td>{{membro.discipulador}}</td>
+        <td>
+          <button type="button" class="btn btn-secondary"><i class="fa fa-list " aria-hidden="true"></i></button>
+          <button  [routerLink]="['membro-edit', membro.$key]" type="button" class="btn btn-secondary"><i class="fa fa-pencil-square " aria-hidden="true"></i></button>
+          <button type="button" class="btn btn-secondary"> <i class="fa fa-trash " aria-hidden="true"></i></button>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
